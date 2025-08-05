@@ -33,14 +33,12 @@ interface ArticlesResponse {
 }
 
 async function getArticles(): Promise<ArticlesResponse> {
-  const res = await fetch(
-    "http://3.131.240.216:1337/api/articles?populate=cover",
-    {
-      cache: "force-cache", // 启用强缓存用于 SSG
-      // cache: "no-store", // SSR
-      // next: { revalidate: 10 }, // 10 秒自动重新生成 ISR
-    }
-  );
+  const baseUrl = process.env.STRAPI_API_URL || "http://3.131.240.216:1337";
+  const res = await fetch(`${baseUrl}/api/articles?populate=cover`, {
+    cache: "force-cache", // 启用强缓存用于 SSG
+    // cache: "no-store", // SSR
+    // next: { revalidate: 10 }, // 10 秒自动重新生成 ISR
+  });
 
   if (!res.ok) {
     const errorText = await res.text();
@@ -84,12 +82,22 @@ export default async function Page() {
             )}
 
             {article.cover?.length > 0 && (
-              <div style={{ position: 'relative', width: '400px', height: '300px', marginTop: 10 }}>
+              <div
+                style={{
+                  position: "relative",
+                  width: "400px",
+                  height: "300px",
+                  marginTop: 10,
+                }}
+              >
                 <Image
-                  src={`http://3.131.240.216:1337${article.cover[0].url}`}
-                  alt={article.cover[0].name || 'Article cover'}
+                  src={`${
+                    process.env.NEXT_PUBLIC_STRAPI_API_URL ||
+                    "http://3.131.240.216:1337"
+                  }${article.cover[0].url}`}
+                  alt={article.cover[0].name || "Article cover"}
                   fill
-                  style={{ objectFit: 'cover' }}
+                  style={{ objectFit: "cover" }}
                   placeholder="blur"
                   blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q=="
                   priority={true}
@@ -102,7 +110,7 @@ export default async function Page() {
       </main>
     );
   } catch (error) {
-    console.error('Failed to load articles:', error);
+    console.error("Failed to load articles:", error);
     return (
       <main style={{ padding: 40 }}>
         <h1>Error Loading Articles</h1>
