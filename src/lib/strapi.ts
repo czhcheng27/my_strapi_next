@@ -1,8 +1,8 @@
 // lib/strapi.ts - Strapi API 工具函数
 
 // 环境配置 - 取消注释需要使用的环境
-const STRAPI_URL = "https://3.131.240.216:1337"; // 生产环境 (尝试 HTTPS)
-// const STRAPI_URL = "http://3.131.240.216:1337"; // 生产环境 (HTTP)
+// const STRAPI_URL = "https://3.131.240.216:1337"; // 生产环境 (尝试 HTTPS) - 不支持
+const STRAPI_URL = "http://3.131.240.216:1337"; // 生产环境 (HTTP)
 // const STRAPI_URL = 'http://localhost:1337';   // 本地环境
 
 export interface StrapiImage {
@@ -52,50 +52,32 @@ export interface StrapiResponse<T> {
 }
 
 export async function getHeroBanners(): Promise<HeroBanner[]> {
-  // 首先尝试 HTTPS
   try {
-    const httpsUrl = `https://3.131.240.216:1337/api/hero-banners?populate=backgroundImage&filters[isActive][$eq]=true`;
+    const apiUrl = `${STRAPI_URL}/api/hero-banners?populate=backgroundImage&filters[isActive][$eq]=true`;
 
-    const res = await fetch(httpsUrl, {
-      next: { revalidate: 30 },
+    const res = await fetch(apiUrl, {
+      next: { revalidate: 30 }, // ISR - 30秒重新验证
       headers: {
         "Content-Type": "application/json",
       },
     });
 
-    if (res.ok) {
-      const response: StrapiResponse<HeroBanner[]> = await res.json();
-      return response.data || [];
+    if (!res.ok) {
+      console.error(
+        "Failed to fetch hero banners:",
+        res.status,
+        res.statusText
+      );
+      return getMockHeroBanners();
     }
-  } catch (httpsError) {
-    console.log("HTTPS failed, trying HTTP...", httpsError);
+
+    const response: StrapiResponse<HeroBanner[]> = await res.json();
+    return response.data || [];
+  } catch (error) {
+    console.error("Error fetching hero banners:", error);
+    return getMockHeroBanners();
   }
-
-  // 如果 HTTPS 失败，尝试 HTTP
-  try {
-    const httpUrl = `http://3.131.240.216:1337/api/hero-banners?populate=backgroundImage&filters[isActive][$eq]=true`;
-
-    const res = await fetch(httpUrl, {
-      next: { revalidate: 30 },
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
-
-    if (res.ok) {
-      const response: StrapiResponse<HeroBanner[]> = await res.json();
-      return response.data || [];
-    }
-  } catch (httpError) {
-    console.error("Both HTTPS and HTTP failed:", httpError);
-  }
-
-  // 如果都失败，返回 mock 数据
-  console.log("Using mock data as fallback");
-  return getMockHeroBanners();
-}
-
-// 模拟数据作为后备
+} // 模拟数据作为后备
 function getMockHeroBanners(): HeroBanner[] {
   return [
     {
@@ -208,12 +190,12 @@ export function getStrapiImageUrl(image: unknown): string | null {
     }
   }
 
-  // 如果是 HTTP 图片且在生产环境中，使用代理
-  if (imageUrl && imageUrl.startsWith("http://")) {
-    // 在生产环境中，所有 HTTP 图片都通过代理访问
-    if (process.env.NODE_ENV === "production") {
-      return `/api/proxy-image?url=${encodeURIComponent(imageUrl)}`;
-    }
+  // 生产环境中，所有远程图片都通过代理访问
+  if (
+    imageUrl &&
+    (imageUrl.includes("3.131.240.216") || imageUrl.startsWith("http://"))
+  ) {
+    return `/api/proxy-image?url=${encodeURIComponent(imageUrl)}`;
   }
 
   return imageUrl;
