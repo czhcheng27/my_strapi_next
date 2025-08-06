@@ -1,6 +1,5 @@
 // src/app/page.tsx - OTT Financial Group 首页
 import React from "react";
-import Image from "next/image";
 import Link from "next/link";
 import HeroBannerComponent from "@/components/HeroBanner";
 import { getHeroBanners } from "@/lib/strapi";
@@ -230,8 +229,8 @@ export default async function HomePage() {
                     href="/news/best-mobile-payment-companies"
                     className="text-gray-900 hover:text-blue-600"
                   >
-                    OTT Pay named one of Canada's best mobile payment companies
-                    in 2021
+                    OTT Pay named one of Canada&apos;s best mobile payment
+                    companies in 2021
                   </Link>
                 </h3>
                 <p className="text-gray-600 text-sm">

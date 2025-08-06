@@ -87,7 +87,11 @@ const HeroBannerComponent: React.FC<HeroBannerProps> = ({ banners }) => {
               if (block.type === "paragraph") {
                 return (
                   <p key={index} className="mb-4">
-                    {block.children?.map((child: any) => child.text).join("")}
+                    {block.children
+                      ?.map(
+                        (child: { type: string; text: string }) => child.text
+                      )
+                      .join("")}
                   </p>
                 );
               }

@@ -22,12 +22,18 @@ export interface HeroBanner {
   id: number;
   title: string;
   subtitle?: string;
-  description?: any[];
+  description?: Array<{
+    type: string;
+    children?: Array<{
+      type: string;
+      text: string;
+    }>;
+  }>;
   buttonText?: string;
   buttonLink?: string;
   order: number;
   isActive: boolean;
-  backgroundImage: any; // 简化类型，支持多种 Strapi 数据结构
+  backgroundImage: unknown; // 简化类型，支持多种 Strapi 数据结构
   createdAt: string;
   updatedAt: string;
 }
@@ -148,7 +154,7 @@ function getMockHeroBanners(): HeroBanner[] {
 }
 
 // 工具函数：提取 Strapi 图片 URL
-export function getStrapiImageUrl(image: any): string | null {
+export function getStrapiImageUrl(image: unknown): string | null {
   if (!image) return null;
 
   // 直接是字符串 URL
@@ -157,22 +163,29 @@ export function getStrapiImageUrl(image: any): string | null {
   }
 
   // 对象形式
-  if (typeof image === "object") {
+  if (typeof image === "object" && image !== null) {
+    const imageObj = image as Record<string, unknown>;
+
     // 有 data 属性
-    if (image.data) {
-      const imgData = Array.isArray(image.data) ? image.data[0] : image.data;
-      if (imgData && imgData.url) {
-        return imgData.url.startsWith("http")
-          ? imgData.url
-          : `${STRAPI_URL}${imgData.url}`;
+    if (imageObj.data) {
+      const data = imageObj.data;
+      const imgData = Array.isArray(data) ? data[0] : data;
+
+      if (imgData && typeof imgData === "object" && imgData !== null) {
+        const imgDataObj = imgData as Record<string, unknown>;
+        if (typeof imgDataObj.url === "string") {
+          return imgDataObj.url.startsWith("http")
+            ? imgDataObj.url
+            : `${STRAPI_URL}${imgDataObj.url}`;
+        }
       }
     }
 
     // 直接有 url 属性
-    if (image.url) {
-      return image.url.startsWith("http")
-        ? image.url
-        : `${STRAPI_URL}${image.url}`;
+    if (typeof imageObj.url === "string") {
+      return imageObj.url.startsWith("http")
+        ? imageObj.url
+        : `${STRAPI_URL}${imageObj.url}`;
     }
   }
 
