@@ -35,9 +35,9 @@ interface ArticlesResponse {
 async function getArticles(): Promise<ArticlesResponse> {
   const baseUrl = process.env.STRAPI_API_URL || "http://3.131.240.216:1337";
   const res = await fetch(`${baseUrl}/api/articles?populate=cover`, {
-    // cache: "force-cache", // 启用强缓存用于 SSG
+    cache: "force-cache", // 启用强缓存用于 SSG
     // cache: "no-store", // SSR
-    next: { revalidate: 10 }, // 10 秒自动重新生成 ISR
+    // next: { revalidate: 10 }, // 10 秒自动重新生成 ISR
   });
 
   if (!res.ok) {
