@@ -1,36 +1,100 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# OTT Financial Group Website
 
-## Getting Started
+这是一个基于 Next.js 15 和 Strapi CMS 构建的 OTT Financial Group 官方网站重构项目。
 
-First, run the development server:
+## 功能特点
+
+- 🚀 **Next.js 15** - 使用最新的 App Router 和 React 19
+- 🎨 **Tailwind CSS 4** - 现代化的样式框架
+- 📱 **响应式设计** - 完美适配桌面端和移动端
+- **Strapi CMS** - 无头内容管理系统
+- ⚡ **ISR** - 增量静态再生，60 秒缓存更新
+
+## 环境配置
+
+### 超简单的环境切换
+
+打开 `src/lib/strapi.ts` 文件，找到这两行：
+
+```typescript
+// 环境配置 - 取消注释需要使用的环境
+const STRAPI_URL = "http://3.131.240.216:1337"; // 生产环境
+// const STRAPI_URL = 'http://localhost:1337';   // 本地环境
+```
+
+**使用生产环境** (默认)：
+
+- 保持第一行不注释
+- 注释第二行
+
+**切换到本地环境**：
+
+- 注释第一行 (在前面加 `//`)
+- 取消注释第二行 (删除前面的 `//`)
+
+就这么简单！修改后重启开发服务器即可。
+
+## 开始开发
+
+### 安装依赖
+
+```bash
+npm install
+```
+
+### 启动开发服务器
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+打开 [http://localhost:3000](http://localhost:3000) 查看网站。
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### 访问 Strapi 管理界面
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- **生产环境**: [http://3.131.240.216:1337/admin](http://3.131.240.216:1337/admin)
+- **本地环境**: [http://localhost:1337/admin](http://localhost:1337/admin)
 
-## Learn More
+## 项目结构
 
-To learn more about Next.js, take a look at the following resources:
+```
+src/
+├── app/                    # Next.js App Router 页面
+│   ├── layout.tsx         # 根布局
+│   ├── page.tsx           # 首页
+│   └── [各种页面]/         # 其他页面
+├── components/            # React 组件
+│   ├── HeroBanner.tsx     # 首页轮播横幅
+│   └── layout/            # 布局组件
+└── lib/                   # 工具函数
+    └── strapi.ts          # Strapi API 集成 (环境配置在这里)
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 内容管理
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Hero Banner 横幅
 
-## Deploy on Vercel
+在 Strapi 中创建 `hero-banner` 内容类型，包含以下字段：
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- `title` (Text) - 主标题
+- `subtitle` (Text) - 副标题
+- `description` (Rich Text) - 描述内容
+- `buttonText` (Text) - 按钮文本
+- `buttonLink` (Text) - 按钮链接
+- `order` (Number) - 排序
+- `isActive` (Boolean) - 是否激活
+- `backgroundImage` (Media) - 背景图片
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 部署
+
+```bash
+npm run build
+npm start
+```
+
+## 技术栈
+
+- **前端**: Next.js 15, React 19, TypeScript
+- **样式**: Tailwind CSS 4
+- **后端**: Strapi CMS
+- **部署**: Vercel (前端), Ubuntu Server (CMS)
