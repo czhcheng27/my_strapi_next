@@ -1,91 +1,70 @@
 // Header 组件
 "use client";
 import React, { useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
+import NAVIGATION, { NavItem } from "../../config/navigation";
+import styles from "./Header.module.scss";
 
 const Header: React.FC = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   return (
-    <header className="bg-white shadow-sm border-b relative z-40">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
+    <header
+      className={`bg-white shadow-sm relative z-40 h-[120px] ${styles.header}`}
+    >
+      <div className="px-4 sm:px-6 lg:px-30 h-full">
+        <div className="flex justify-between items-start h-full">
           {/* Logo */}
-          <div className="flex-shrink-0">
+          <div className="flex-shrink-0 pt-[40px]">
             <Link href="/" className="text-2xl font-bold text-blue-600">
-              OTT
+              <Image
+                src="/images/logos/logo.svg"
+                alt="Logo"
+                width={136}
+                height={48}
+              />
             </Link>
           </div>
 
-          {/* Navigation */}
-          <nav className="hidden md:flex space-x-8">
-            <Link href="/" className="text-gray-700 hover:text-blue-600">
-              Home
-            </Link>
-            <div className="relative group">
-              <button className="text-gray-700 hover:text-blue-600">
-                About Us
-              </button>
-              <div className="absolute left-0 mt-2 w-48 bg-white shadow-lg rounded-md opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all z-50">
-                <Link
-                  href="/company-overview"
-                  className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+          {/* Navigation (rendered from config) */}
+          <nav className="hidden md:flex space-x-8 items-start h-[60px] mt-15">
+            {NAVIGATION.map((item: NavItem) => {
+              const baseClass =
+                "text-gray-700 hover:text-blue-600 hover:cursor-pointer";
+              const style: React.CSSProperties = {
+                color: "#4C4D4E",
+                fontFamily: '"Noto Sans"',
+                fontSize: 16,
+                fontStyle: "normal",
+                fontWeight: 400,
+                height: 24,
+                lineHeight: "24px",
+              };
+
+              return (
+                <div
+                  key={item.title}
+                  className={`relative group ${styles.navItemContainer}`}
                 >
-                  Company Overview
-                </Link>
-                <Link
-                  href="/history"
-                  className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
-                >
-                  History
-                </Link>
-                <Link
-                  href="/culture"
-                  className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
-                >
-                  Our Culture
-                </Link>
-                <Link
-                  href="/accreditation"
-                  className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
-                >
-                  Accreditation
-                </Link>
-              </div>
-            </div>
-            <div className="relative group">
-              <button className="text-gray-700 hover:text-blue-600">
-                Services
-              </button>
-              <div className="absolute left-0 mt-2 w-48 bg-white shadow-lg rounded-md opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all z-50">
-                <Link
-                  href="/payments"
-                  className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
-                >
-                  Smart Payments
-                </Link>
-                <Link
-                  href="/foreign-exchange"
-                  className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
-                >
-                  Foreign Exchange
-                </Link>
-                <Link
-                  href="/financial-services"
-                  className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
-                >
-                  Financial Services
-                </Link>
-              </div>
-            </div>
-            <Link href="/careers" className="text-gray-700 hover:text-blue-600">
-              Careers
-            </Link>
-            <Link href="/news" className="text-gray-700 hover:text-blue-600">
-              News
-            </Link>
-            <Link href="/contact" className="text-gray-700 hover:text-blue-600">
-              Contact
-            </Link>
+                  <button style={style} className={baseClass}>
+                    {item.title}
+                  </button>
+                  <div className="absolute left-0 top-[60px] w-[214px] bg-[#F8F7F5] shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all z-50">
+                    {item?.children?.map(
+                      (child: { title: string; href?: string }) => (
+                        <Link
+                          key={child.title}
+                          href={child.href || "#"}
+                          className="flex items-center h-12 px-[17px] py-[8px] text-[#4C4D4E] font-normal hover:bg-white"
+                        >
+                          {child.title}
+                        </Link>
+                      )
+                    )}
+                  </div>
+                </div>
+              );
+            })}
           </nav>
 
           {/* Mobile menu button */}
@@ -115,54 +94,40 @@ const Header: React.FC = () => {
         {isMobileMenuOpen && (
           <div className="md:hidden border-t border-gray-200 py-4">
             <div className="space-y-2">
-              <Link
-                href="/"
-                className="block px-4 py-2 text-gray-700 hover:text-blue-600"
-              >
-                Home
-              </Link>
-              <Link
-                href="/company-overview"
-                className="block px-4 py-2 text-gray-700 hover:text-blue-600"
-              >
-                Company Overview
-              </Link>
-              <Link
-                href="/payments"
-                className="block px-4 py-2 text-gray-700 hover:text-blue-600"
-              >
-                Smart Payments
-              </Link>
-              <Link
-                href="/foreign-exchange"
-                className="block px-4 py-2 text-gray-700 hover:text-blue-600"
-              >
-                Foreign Exchange
-              </Link>
-              <Link
-                href="/financial-services"
-                className="block px-4 py-2 text-gray-700 hover:text-blue-600"
-              >
-                Financial Services
-              </Link>
-              <Link
-                href="/careers"
-                className="block px-4 py-2 text-gray-700 hover:text-blue-600"
-              >
-                Careers
-              </Link>
-              <Link
-                href="/news"
-                className="block px-4 py-2 text-gray-700 hover:text-blue-600"
-              >
-                News
-              </Link>
-              <Link
-                href="/contact"
-                className="block px-4 py-2 text-gray-700 hover:text-blue-600"
-              >
-                Contact
-              </Link>
+              {NAVIGATION.map((item: NavItem) => {
+                if (item.children && item.children.length > 0) {
+                  return (
+                    <div key={item.title}>
+                      <div className="block px-4 py-2 text-gray-700 font-medium">
+                        {item.title}
+                      </div>
+                      {item.children.map(
+                        (child: { title: string; href?: string }) => (
+                          <Link
+                            key={child.title}
+                            href={child.href || "#"}
+                            onClick={() => setIsMobileMenuOpen(false)}
+                            className="block px-6 py-2 text-gray-700 hover:text-blue-600"
+                          >
+                            {child.title}
+                          </Link>
+                        )
+                      )}
+                    </div>
+                  );
+                }
+
+                return (
+                  <Link
+                    key={item.title}
+                    href={item.href || "#"}
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className="block px-4 py-2 text-gray-700 hover:text-blue-600"
+                  >
+                    {item.title}
+                  </Link>
+                );
+              })}
             </div>
           </div>
         )}

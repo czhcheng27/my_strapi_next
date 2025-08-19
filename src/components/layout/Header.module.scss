@@ -1,0 +1,36 @@
+.header {
+  --header-height: 120px;
+  --nav-height: 60px;
+  --underline-color: #e31f26;
+  --duration: 350ms;
+}
+
+.navItemContainer {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  height: 100%;
+  margin-left: 84px;
+  margin-right: 0;
+  cursor: pointer;
+}
+.navItemContainer::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 52px; /* Position just inside the bottom of header */
+  height: 8px;
+  width: 100%;
+  background: var(--underline-color);
+  transform-origin: left center;
+  transform: scaleX(0);
+  opacity: 0;
+  will-change: transform, opacity;
+  transition: transform var(--duration) cubic-bezier(0.25, 0.46, 0.45, 0.94),
+    opacity var(--duration) cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.navItemContainer:hover::after,
+.navItemContainer:focus::after {
+  transform: scaleX(1);
+  opacity: 1;
+}
