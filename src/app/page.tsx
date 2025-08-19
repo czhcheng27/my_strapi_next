@@ -3,8 +3,9 @@ import React from "react";
 import Link from "next/link";
 import HeroBannerComponent from "@/components/HeroBanner";
 import { getHeroBanners } from "@/lib/strapi";
-import Section2 from "@/components/Section2";
-import Section3 from "@/components/Section3";
+import Section2 from "@/components/Section2/Section2";
+import Section3 from "@/components/Section3/Section3";
+import Section4 from "@/components/Section4/Section4";
 
 export default async function HomePage() {
   const heroBanners = await getHeroBanners();
@@ -15,6 +16,7 @@ export default async function HomePage() {
       <HeroBannerComponent banners={heroBanners} />
       <Section2 />
       <Section3 />
+      <Section4 />
       {/* Financial Products & Services */}
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
