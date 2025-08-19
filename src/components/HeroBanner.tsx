@@ -53,7 +53,7 @@ const HeroBannerComponent: React.FC<HeroBannerProps> = ({ banners }) => {
   const currentBanner = banners[currentSlide];
 
   return (
-    <section className="relative h-[calc(100vh-4rem)] flex items-center justify-center overflow-hidden">
+    <section className="relative h-[calc(100vh-120px)] flex items-center justify-center overflow-hidden">
       {/* 背景图片或渐变背景 */}
       {currentBanner.backgroundImage ? (
         <div className="absolute inset-0">

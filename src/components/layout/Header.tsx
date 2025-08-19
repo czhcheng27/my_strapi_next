@@ -49,7 +49,7 @@ const Header: React.FC = () => {
                   <button style={style} className={baseClass}>
                     {item.title}
                   </button>
-                  <div className="absolute left-0 top-[60px] w-[214px] bg-[#F8F7F5] shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all z-50">
+                  <div className="absolute left-0 top-[60px] w-[248px] bg-[#F8F7F5] shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all z-50">
                     {item?.children?.map(
                       (child: { title: string; href?: string }) => (
                         <Link
