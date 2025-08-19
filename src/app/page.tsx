@@ -3,6 +3,8 @@ import React from "react";
 import Link from "next/link";
 import HeroBannerComponent from "@/components/HeroBanner";
 import { getHeroBanners } from "@/lib/strapi";
+import Section2 from "@/components/Section2";
+import Section3 from "@/components/Section3";
 
 export default async function HomePage() {
   const heroBanners = await getHeroBanners();
@@ -10,7 +12,9 @@ export default async function HomePage() {
   return (
     <div className="min-h-screen">
       {/* Hero Section - 动态轮播图 */}
-      <HeroBannerComponent banners={heroBanners} />{" "}
+      <HeroBannerComponent banners={heroBanners} />
+      <Section2 />
+      <Section3 />
       {/* Financial Products & Services */}
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
