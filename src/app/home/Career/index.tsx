@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./index.module.scss";
 import Image from "next/image";
-import ExploreMore from "../ExploreMore";
+import ExploreMore from "@/components/ExploreMore";
 
 const HomeCareer = () => {
   return (

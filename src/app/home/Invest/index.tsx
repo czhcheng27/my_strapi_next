@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import ExploreMore from "../ExploreMore";
+import ExploreMore from "@/components/ExploreMore";
 import styles from "./index.module.scss";
 
 const options = [
