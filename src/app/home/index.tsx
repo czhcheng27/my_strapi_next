@@ -12,12 +12,12 @@ const HomePage = async () => {
   const heroBanners = await getHeroBanners();
   return (
     <div className="min-h-screen">
-      <HomePortfolio />
       {/* Hero Section - 动态轮播图 */}
       <HeroBannerComponent banners={heroBanners} />
       <HomeAbout />
       <Divider />
       <HomeInvest />
+      <HomePortfolio />
       <HomeCareer />
       {/* Financial Products & Services */}
       <section className="py-20 bg-gray-50">
