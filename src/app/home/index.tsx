@@ -6,11 +6,13 @@ import HomeAbout from "./About";
 import HomeInvest from "./Invest";
 import HomeCareer from "./Career";
 import Divider from "./Divider";
+import HomePortfolio from "./Portfolio";
 
 const HomePage = async () => {
   const heroBanners = await getHeroBanners();
   return (
     <div className="min-h-screen">
+      <HomePortfolio />
       {/* Hero Section - 动态轮播图 */}
       <HeroBannerComponent banners={heroBanners} />
       <HomeAbout />
