@@ -6,8 +6,8 @@ import styles from "./index.module.scss";
 const HomeFintech = () => {
   return (
     <div className={`bg-[#DDD] ${styles.fintech}`}>
-      {/* Container with responsive padding */}
-      <div className="px-4 sm:px-16 lg:px-24 xl:px-36 2xl:px-48 3xl:px-60">
+      {/* Container with responsive padding matching other components */}
+      <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-24 xl:px-36 3xl:px-0">
         {/* Hero section - text and image */}
         <div className="relative py-12 md:py-16 lg:py-12 xl:py-16 2xl:py-20 3xl:py-26">
           <div className="max-w-8xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">

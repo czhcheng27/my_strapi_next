@@ -28,37 +28,58 @@ const options = [
 
 const HomeInvest = () => {
   return (
-    <div className="pt-20 pb-22 px-60 text-[#000]">
-      <div className={styles.title}>Investments</div>
-      <div className={styles.subtitle}>
-        Smart strategies. Sustainable growth.
-      </div>
-      <div className={styles.description}>
-        We manage and grow diverse assets with precision and care—building
-        lasting value for clients and communities.
-      </div>
+    <section className="py-12 lg:py-20 text-[#000]">
+      {/* Container with responsive padding matching Fintech */}
+      <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-24 xl:px-36 3xl:px-0">
+        {/* Header section */}
+        <div className="mb-12 lg:mb-20">
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-light mb-6">
+            Investments
+          </h1>
+          <h2 className="text-lg sm:text-xl lg:text-2xl font-light mb-4 text-black">
+            Smart strategies. Sustainable growth.
+          </h2>
+          <p className="max-w-2xl text-base lg:text-lg font-light text-black leading-relaxed">
+            We manage and grow diverse assets with precision and care—building
+            lasting value for clients and communities.
+          </p>
+        </div>
 
-      <div className="flex justify-between">
-        {options.map((el, index) => {
-          return (
-            <div className={styles.option} key={index}>
-              <Image
-                src={el.img}
-                alt={el.title}
-                width={454}
-                height={454}
-                style={{ width: "454px", height: "454px" }}
-              />
-              <div className={styles.bottom}>
-                <h3 className={styles.title}>{el.title}</h3>
-                <p className={styles.description}>{el.description}</p>
-                <ExploreMore link={el.link} />
+        {/* Investment options grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 items-stretch">
+          {options.map((el, index) => {
+            return (
+              <div
+                key={index}
+                className="bg-white rounded-lg shadow-lg overflow-hidden flex flex-col h-full"
+              >
+                {/* Image with aspect ratio (does not grow) */}
+                <div className="aspect-square relative flex-shrink-0">
+                  <Image
+                    src={el.img}
+                    alt={el.title}
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+                {/* Content section fills remaining height */}
+                <div className="p-6 lg:p-8 bg-[#F8F7F5] flex-1 flex flex-col">
+                  <h3 className="text-2xl lg:text-3xl font-light mb-3">
+                    {el.title}
+                  </h3>
+                  <p className="text-lg lg:text-xl font-light mb-6 leading-relaxed">
+                    {el.description}
+                  </p>
+                  <div className="mt-auto">
+                    <ExploreMore link={el.link} />
+                  </div>
+                </div>
               </div>
-            </div>
-          );
-        })}
+            );
+          })}
+        </div>
       </div>
-    </div>
+    </section>
   );
 };
 
