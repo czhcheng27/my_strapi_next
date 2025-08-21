@@ -7,6 +7,7 @@ import HomeInvest from "./Invest";
 import HomeCareer from "./Career";
 import Divider from "./Divider";
 import HomePortfolio from "./Portfolio";
+import HomeFintech from "./Fintech";
 
 const HomePage = async () => {
   const heroBanners = await getHeroBanners();
@@ -17,6 +18,7 @@ const HomePage = async () => {
       <HomeAbout />
       <Divider />
       <HomeInvest />
+      <HomeFintech />
       <HomePortfolio />
       <HomeCareer />
       {/* Financial Products & Services */}
