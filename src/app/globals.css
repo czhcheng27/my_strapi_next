@@ -3,6 +3,9 @@
 @theme {
   --breakpoint-xs: 30rem;
   --breakpoint-3xl: 120rem;
+
+  /* 自定义 max-w */
+  --container-8xl: 90rem;
 }
 
 :root {

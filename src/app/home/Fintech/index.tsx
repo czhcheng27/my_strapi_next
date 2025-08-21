@@ -10,7 +10,7 @@ const HomeFintech = () => {
       <div className="px-4 sm:px-16 lg:px-24 xl:px-36 2xl:px-48 3xl:px-60">
         {/* Hero section - text and image */}
         <div className="relative py-12 md:py-16 lg:py-12 xl:py-16 2xl:py-20 3xl:py-26">
-          <div className="max-w-[1440px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
+          <div className="max-w-8xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
             {/* Text content */}
             <div className="order-2 lg:order-1">
               <h1 className="text-3xl sm:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl 3xl:text-5xl font-light mb-6 lg:mb-8">
@@ -48,7 +48,7 @@ const HomeFintech = () => {
 
         {/* Services cards section */}
         <div className="-mt-8 md:-mt-12 lg:-mt-40 xl:-mt-50 2xl:-mt-55 3xl:-mt-60 pb-8 lg:pb-10 xl:pb-20 2xl:pb-30">
-          <div className="max-w-[1440px] mx-auto">
+          <div className="max-w-8xl mx-auto">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
               {/* Service 1 */}
               <div className="bg-white rounded-lg shadow-lg overflow-hidden">
