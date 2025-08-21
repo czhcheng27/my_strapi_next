@@ -4,40 +4,52 @@ import Image from "next/image";
 
 const Divider = () => {
   return (
-    <div className="h-61 bg-[#F8F7F5] flex items-center">
-      {/* Left Side Image */}
-      <div className="w-2/5">
-        <div className="flex align-center pl-58">
-          <Image
-            src={"images/logos/logo.svg"}
-            alt="img"
-            width={180}
-            height={63}
-          />
-          <Image
-            src={"images/icons/Vector.svg"}
-            alt="img"
-            width={1}
-            height={63}
-            className="mx-5"
-          />
-          <Image
-            src={"images/logos/logo4.svg"}
-            alt="img"
-            width={132}
-            height={63}
-          />
-        </div>
-      </div>
+    <section className="py-12 lg:py-20 bg-[#F8F7F5]">
+      <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-24 xl:px-36 3xl:px-0">
+        {/* Unified layout: logos in flow; text will switch to absolute at larger breakpoints via CSS module */}
+        <div className="relative">
+          {/* Logos */}
+          <div className="flex items-center justify-center lg:justify-start">
+            <Image
+              src="/images/logos/logo.svg"
+              alt="OTT Logo"
+              width={180}
+              height={63}
+              className="h-12 lg:h-16 w-auto"
+            />
+            <Image
+              src="/images/icons/Vector.svg"
+              alt="Divider"
+              width={1}
+              height={63}
+              className="mx-4 lg:mx-6 h-12 lg:h-16 w-auto"
+            />
+            <Image
+              src="/images/logos/logo4.svg"
+              alt="Partner Logo"
+              width={132}
+              height={63}
+              className="h-12 lg:h-16 w-auto"
+            />
+          </div>
 
-      {/* Right Side Content */}
-      <div className={`w-3/5 ${styles.dividerText}`}>
-        <div className="text-2xl font-normal mb-2">OTT Group 20 Years ：</div>
-        <div className="text-4xl font-[250]">
-          More Expertise, More Stability and More Vision
+          {/* Text - stays in flow on small, becomes absolutely positioned on larger screens via module CSS */}
+          <div
+            className={
+              styles.dividerText +
+              " hidden md:block mt-6 text-center lg:text-left"
+            }
+          >
+            <div className="text-lg font-normal mb-2">
+              OTT Group 20 Years ：
+            </div>
+            <div className="text-2xl xl:text-4xl font-light">
+              More Expertise, More Stability and More Vision
+            </div>
+          </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

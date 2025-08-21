@@ -3,3 +3,40 @@
   color: #000;
   font-style: normal;
 }
+
+/* At larger screens we want the text to be positioned so its left edge sits visually
+   a fixed distance from the logos. We'll switch to absolute positioning at lg+. */
+@media (min-width: 1024px) {
+  /* lg */
+  .dividerText {
+    position: absolute;
+    top: 0;
+    left: calc(
+      180px + 24px + 132px + 24px + 48px
+    ); /* base offset used before */
+    transform: none;
+    text-align: left;
+    margin-top: 0;
+  }
+}
+
+@media (min-width: 1280px) {
+  /* xl */
+  .dividerText {
+    left: calc(180px + 24px + 132px + 24px + 64px);
+  }
+}
+
+@media (min-width: 1536px) {
+  /* 2xl */
+  .dividerText {
+    left: calc(180px + 24px + 132px + 24px + 80px);
+  }
+}
+
+@media (min-width: 1952px) {
+  /* 3xl custom */
+  .dividerText {
+    left: calc(180px + 24px + 132px + 24px + 128px);
+  }
+}
