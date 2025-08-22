@@ -1,5 +1,5 @@
-import HlsPlayer from "@/components/HlsPlayer";
 import React from "react";
+import HlsPlayer from "@/components/HlsPlayer";
 
 const HomeHero = () => {
   return (
