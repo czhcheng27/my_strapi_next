@@ -1,19 +1,16 @@
 import React from "react";
-import { getHeroBanners } from "@/lib/strapi";
-import HeroBannerComponent from "@/components/HeroBanner";
+import HomeHero from "./Hero";
 import HomeAbout from "./About";
-import HomeInvest from "./Invest";
-import HomeCareer from "./Career";
 import Divider from "./Divider";
-import HomePortfolio from "./Portfolio";
+import HomeInvest from "./Invest";
 import HomeFintech from "./Fintech";
+import HomePortfolio from "./Portfolio";
+import HomeCareer from "./Career";
 
-const HomePage = async () => {
-  const heroBanners = await getHeroBanners();
+const HomePage = () => {
   return (
     <div className="min-h-screen">
-      {/* Hero Section - 动态轮播图 */}
-      <HeroBannerComponent banners={heroBanners} />
+      <HomeHero />
       <HomeAbout />
       <Divider />
       <HomeInvest />
