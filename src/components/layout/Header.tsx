@@ -25,7 +25,7 @@ const Header: React.FC = () => {
           </div>
 
           {/* Navigation (rendered from config) */}
-          <nav className="hidden md:flex space-x-8 items-start h-[60px] mt-15">
+          <nav className="hidden md:flex items-start h-15 mt-15">
             {NAVIGATION.map((item: NavItem) => {
               const baseClass =
                 "text-gray-700 hover:text-blue-600 hover:cursor-pointer";
@@ -42,7 +42,7 @@ const Header: React.FC = () => {
               return (
                 <div
                   key={item.title}
-                  className={`relative group ${styles.navItemContainer}`}
+                  className={`relative group ml-21 ${styles.navItemContainer}`}
                 >
                   <button style={style} className={baseClass}>
                     {item.title}
@@ -63,6 +63,20 @@ const Header: React.FC = () => {
                 </div>
               );
             })}
+
+            {/* Login Btn */}
+            <div className="bg-[#E31F26] hover:bg-[#BAB6B5] hover:cursor-pointer transition-colors text-white text-xs flex items-center justify-center ml-31 mr-10 w-14 h-7">
+              <Link href="/login" className="transition-colors">
+                Login
+              </Link>
+            </div>
+
+            {/* Translate */}
+            <div className="mt-[2px] hover:cursor-pointer">
+              <div className="text-lg hover:text-[#BAB6B5] transition-all duration-1000 ease-in-out hover:drop-shadow-md">
+                CN
+              </div>
+            </div>
           </nav>
 
           {/* Mobile menu button */}
