@@ -28,7 +28,7 @@ const options = [
 
 const HomeInvest = () => {
   return (
-    <section className="py-12 lg:py-20 text-[#000]">
+    <section className="py-12 lg:py-20">
       {/* Container with responsive padding matching Fintech */}
       <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-24 xl:px-36 3xl:px-0">
         {/* Header section */}
@@ -36,10 +36,10 @@ const HomeInvest = () => {
           <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-light mb-6">
             Investments
           </h1>
-          <h2 className="text-lg sm:text-xl lg:text-2xl font-light mb-4 text-black">
+          <h2 className="text-lg sm:text-xl lg:text-2xl font-light mb-4">
             Smart strategies. Sustainable growth.
           </h2>
-          <p className="max-w-2xl text-base lg:text-lg font-light text-black leading-relaxed">
+          <p className="max-w-2xl lg:text-lg font-light leading-relaxed">
             We manage and grow diverse assets with precision and care—building
             lasting value for clients and communities.
           </p>
@@ -51,7 +51,7 @@ const HomeInvest = () => {
             return (
               <div
                 key={index}
-                className="bg-white rounded-lg shadow-lg overflow-hidden flex flex-col h-full"
+                className="rounded-lg shadow-lg overflow-hidden flex flex-col h-full"
               >
                 {/* Image with aspect ratio (does not grow) */}
                 <div className="aspect-square relative flex-shrink-0">

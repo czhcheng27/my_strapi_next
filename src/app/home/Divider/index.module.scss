@@ -1,9 +1,3 @@
-.dividerText {
-  font-family: "Noto Sans";
-  color: #000;
-  font-style: normal;
-}
-
 /* At larger screens we want the text to be positioned so its left edge sits visually
    a fixed distance from the logos. We'll switch to absolute positioning at lg+. */
 @media (min-width: 1024px) {

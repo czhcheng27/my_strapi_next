@@ -5,7 +5,7 @@ import styles from "./index.module.scss";
 
 const HomeFintech = () => {
   return (
-    <div className={`bg-[#DDD] ${styles.fintech}`}>
+    <div className={`bg-[#DDD]`}>
       {/* Container with responsive padding matching other components */}
       <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-24 xl:px-36 3xl:px-0">
         {/* Hero section - text and image */}
@@ -16,15 +16,15 @@ const HomeFintech = () => {
               <h1 className="text-3xl sm:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl 3xl:text-5xl font-light mb-6 lg:mb-8">
                 Payments & Financial Services
               </h1>
-              <h2 className="text-lg sm:text-xl lg:text-2xl font-light mb-2 text-black">
+              <h2 className="text-lg sm:text-xl lg:text-2xl font-light mb-2">
                 Seamless financial solutions without borders.
               </h2>
-              <p className="text-base lg:text-lg font-light mb-2 text-black leading-relaxed">
+              <p className="lg:text-lg font-light mb-2 leading-relaxed">
                 We deliver trusted payments, cross-border solutions, and digital
                 banking that connect people, businesses, and
                 opportunities—anytime, anywhere.
               </p>
-              <ul className="list-disc text-base lg:text-lg font-light ml-6 mb-8 lg:mb-12 space-y-2 text-black">
+              <ul className="list-disc lg:text-lg font-light ml-6 mb-8 lg:mb-12 space-y-2">
                 <li>Payment Solutions</li>
                 <li>International Remittance</li>
                 <li>Digital Banking & Card Services</li>

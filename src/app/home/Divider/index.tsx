@@ -40,9 +40,7 @@ const Divider = () => {
               " hidden md:block mt-6 text-center lg:text-left"
             }
           >
-            <div className="text-lg font-normal mb-2">
-              OTT Group 20 Years ：
-            </div>
+            <div className="text-lg mb-2">OTT Group 20 Years ：</div>
             <div className="text-2xl xl:text-4xl font-light">
               More Expertise, More Stability and More Vision
             </div>

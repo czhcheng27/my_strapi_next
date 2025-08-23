@@ -4,9 +4,9 @@ import styles from "./index.module.scss";
 
 const HomePortfolio = () => {
   return (
-    <div className={`relative h-70 sm:h-100 lg:h-151 ${styles.portfolio}`}>
+    <div className={`relative h-70 sm:h-100 lg:h-151`}>
       {/* Quote text - 添加 sm 和更小屏幕的响应式 */}
-      <div className="absolute top-8 sm:top-16 md:top-28 3xl:top-28 -right-10 sm:right-6 md:right-8 lg:right-20 xl:right-32 2xl:right-47 3xl:right-47 max-w-72 sm:max-w-80 md:max-w-90 lg:max-w-108 xl:max-w-156 2xl:max-w-204 3xl:max-w-264 italic text-xl sm:text-3xl md:text-[28px] lg:text-[36px] xl:text-[44px] 2xl:text-[52px] 3xl:text-5xl">
+      <div className="absolute font-[250] top-8 sm:top-16 md:top-28 3xl:top-28 -right-10 sm:right-6 md:right-8 lg:right-20 xl:right-32 2xl:right-47 3xl:right-47 max-w-72 sm:max-w-80 md:max-w-90 lg:max-w-108 xl:max-w-156 2xl:max-w-204 3xl:max-w-264 italic text-xl sm:text-3xl md:text-[28px] lg:text-[36px] xl:text-[44px] 2xl:text-[52px] 3xl:text-5xl">
         OTT is poised to seize future opportunities across fintech, payments,
         and real estate.
       </div>

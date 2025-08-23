@@ -4,7 +4,7 @@ import ExploreMore from "@/components/ExploreMore";
 
 const HomeAbout = () => {
   return (
-    <section className="py-12 lg:py-27">
+    <section className="font-noto py-12 lg:py-27">
       <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-24 xl:px-36 3xl:px-0">
         <div className="grid grid-cols-1 lg:grid-cols-2 items-start gap-8 lg:gap-12">
           {/* Image */}
@@ -37,7 +37,7 @@ const HomeAbout = () => {
                 and communities.
               </p>
 
-              <ul className="list-disc ml-6 pt-2 pb-4 xl:pb-8 space-y-1">
+              <ul className="list-disc ml-6 pt-2 pb-4 xl:pb-8 space-y-1 font-light">
                 <li>Mission & Vision</li>
                 <li>Our Story</li>
                 <li>Community</li>

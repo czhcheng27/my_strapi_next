@@ -25,7 +25,7 @@ const HomeCareer = () => {
                 <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-light mb-6">
                   Careers
                 </h1>
-                <p className="text-lg sm:text-xl lg:text-2xl font-light mb-8 lg:mb-12 text-black leading-relaxed">
+                <p className="text-lg sm:text-xl lg:text-2xl font-light mb-8 lg:mb-12 leading-relaxed">
                   Join OTT and shape the future of finance and real estate—while
                   growing your own career in a collaborative, forward-thinking
                   team

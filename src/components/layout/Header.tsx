@@ -9,9 +9,7 @@ import styles from "./Header.module.scss";
 const Header: React.FC = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   return (
-    <header
-      className={`bg-white shadow-sm relative z-40 h-[120px] ${styles.header}`}
-    >
+    <header className={`shadow-sm relative z-40 h-30 ${styles.header}`}>
       <div className="px-4 sm:px-6 lg:px-30 h-full">
         <div className="flex justify-between items-start h-full">
           {/* Logo */}
@@ -49,7 +47,7 @@ const Header: React.FC = () => {
                   <button style={style} className={baseClass}>
                     {item.title}
                   </button>
-                  <div className="absolute left-0 top-[60px] w-[248px] bg-[#F8F7F5] shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all z-50">
+                  <div className="absolute left-0 top-15 w-[248px] bg-[#F8F7F5] shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all z-50">
                     {item?.children?.map(
                       (child: { title: string; href?: string }) => (
                         <Link
