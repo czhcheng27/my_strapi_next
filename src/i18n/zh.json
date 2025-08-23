@@ -1,0 +1,20 @@
+{
+  "common": {
+    "login": "登录"
+  },
+  "home": {
+    "about us": "关于OTT Financial Group",
+    "investments": "投资管理",
+    "fintech": "支付与金融服务",
+    "careers": "与OTT同行",
+    "about": {
+      "title": "关于OTT Financial Group",
+      "description": "自2006年在多伦多成立以来,OTT集团已为众多家庭 与企业客户提供专业的财富管理服务。我们深知, 財富管理不仅是资产数字的增长,更是人生阶段 与家庭责任的延续。因此,我们以稳健、合规、 长期信赖为原则,协助客户做出真正有意义的财务决策。",
+      "list": {
+        "item1": "我们的愿景与使命",
+        "item2": "发展历程",
+        "item3": "社区与公益"
+      }
+    }
+  }
+}

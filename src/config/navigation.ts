@@ -6,7 +6,7 @@ export type NavItem = {
 
 const NAVIGATION: NavItem[] = [
   {
-    title: "About Us",
+    title: "about us",
     children: [
       { title: "Company Profile", href: "/company-overview" },
       { title: "Mission & Vision", href: "/culture" },
@@ -17,15 +17,15 @@ const NAVIGATION: NavItem[] = [
     ],
   },
   {
-    title: "Investment",
+    title: "investments",
     children: [
       { title: "Smart Payments", href: "/payments" },
       { title: "Foreign Exchange", href: "/foreign-exchange" },
       { title: "Financial Services", href: "/financial-services" },
     ],
   },
-  { title: "Fintech", href: "/news" },
-  { title: "Careers", href: "/careers" },
+  { title: "fintech", href: "/news" },
+  { title: "careers", href: "/careers" },
 ];
 
 export default NAVIGATION;

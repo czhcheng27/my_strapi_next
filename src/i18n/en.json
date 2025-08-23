@@ -1,0 +1,20 @@
+{
+  "common": {
+    "login": "Login"
+  },
+  "home": {
+    "about us": "About Us",
+    "investments": "Investments",
+    "fintech": "Fintech",
+    "careers": "Careers",
+    "about": {
+      "title": "About OTT Financial Group",
+      "description": "Driven by smart investments and innovative financial solutions, we advance investment management and financial services in synergy. Our expertise spans wealth, real estate, and hospitality investment. We also provide payments, cross-border finance, digital banking, and credit cards, creating sustainable value for clients and communities.",
+      "list": {
+        "item1": "Mission & Vision",
+        "item2": "Our Story",
+        "item3": "Community"
+      }
+    }
+  }
+}

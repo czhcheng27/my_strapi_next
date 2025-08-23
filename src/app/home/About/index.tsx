@@ -1,8 +1,11 @@
+"use client";
 import React from "react";
 import Image from "next/image";
+import { useTranslations } from "next-intl";
 import ExploreMore from "@/components/ExploreMore";
 
 const HomeAbout = () => {
+  const t = useTranslations("home.about");
   return (
     <section className="font-noto py-12 lg:py-27">
       <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-24 xl:px-36 3xl:px-0">
@@ -26,21 +29,16 @@ const HomeAbout = () => {
               <h2
                 className={`font-[250] text-3xl lg:text-3xl xl:text-4xl mb-4`}
               >
-                About OTT Financial Group
+                {t("title")}
               </h2>
               <p className={`font-light text-lg lg:text-sm xl:text-base`}>
-                Driven by smart investments and innovative financial solutions,
-                we advance investment management and financial services in
-                synergy—spanning wealth, real estate, and lifestyle club
-                investments, as well as payments, cross-border finance, digital
-                banking, and credit cards—creating sustainable value for clients
-                and communities.
+                {t("description")}
               </p>
 
               <ul className="list-disc ml-6 pt-2 pb-4 xl:pb-8 space-y-1 font-light">
-                <li>Mission & Vision</li>
-                <li>Our Story</li>
-                <li>Community</li>
+                <li>{t("list.item1")}</li>
+                <li>{t("list.item2")}</li>
+                <li>{t("list.item3")}</li>
               </ul>
 
               <ExploreMore link="/about" />
