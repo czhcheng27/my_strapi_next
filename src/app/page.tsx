@@ -1,7 +1,8 @@
-// src/app/page.tsx - OTT Financial Group 首页
-import React from "react";
-import HomePage from "./home";
+// src/app/page.tsx
+import { redirect } from "next/navigation";
+import { i18n } from "@/i18n/settings";
 
-export default async function Home() {
-  return <HomePage />;
+export default function RootPage() {
+  // 自动跳到默认语言
+  redirect(`/${i18n.defaultLocale}`);
 }

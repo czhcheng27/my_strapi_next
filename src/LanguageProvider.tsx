@@ -1,12 +1,8 @@
 "use client";
-import {
-  createContext,
-  useContext,
-  useState,
-  useEffect,
-  ReactNode,
-} from "react";
+import { createContext, useState, useEffect, ReactNode } from "react";
 import { IntlProvider } from "next-intl";
+import { usePathname, useRouter } from "next/navigation";
+import { i18n } from "@/i18n/settings";
 
 interface LanguageContextType {
   locale: string;
@@ -19,7 +15,21 @@ const LanguageContext = createContext<LanguageContextType>({
 });
 
 export function useLanguage() {
-  return useContext(LanguageContext);
+  const router = useRouter();
+  const pathname = usePathname();
+
+  // 当前语言从 URL 中获取
+  const locale =
+    i18n.locales.find((l) => pathname.startsWith(`/${l}`)) ||
+    i18n.defaultLocale;
+
+  function switchLocale(newLocale: (typeof i18n.locales)[number]) {
+    // 用新的 locale 替换 URL 中的语言部分
+    const newPath = pathname.replace(/^\/(en|zh)/, `/${newLocale}`);
+    router.push(newPath);
+  }
+
+  return { locale, switchLocale };
 }
 
 export function LanguageProvider({ children }: { children: ReactNode }) {

@@ -1,4 +1,6 @@
-import React from "react";
+// Home 页
+import { getDictionary } from "@/i18n/server";
+import { Locale } from "@/i18n/settings";
 import HomeHero from "./Hero";
 import HomeAbout from "./About";
 import Divider from "./Divider";
@@ -7,11 +9,18 @@ import HomeFintech from "./Fintech";
 import HomePortfolio from "./Portfolio";
 import HomeCareer from "./Career";
 
-const HomePage = () => {
+export default async function HomePage({
+  params,
+}: {
+  params: Promise<{ locale: Locale }>;
+}) {
+  const { locale } = await params;
+  const dict = await getDictionary(locale);
+
   return (
     <div className="min-h-screen">
       <HomeHero />
-      <HomeAbout />
+      <HomeAbout t={dict.home.about} />
       <Divider />
       <HomeInvest />
       <HomeFintech />
@@ -19,6 +28,4 @@ const HomePage = () => {
       <HomeCareer />
     </div>
   );
-};
-
-export default HomePage;
+}

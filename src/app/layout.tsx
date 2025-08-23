@@ -1,8 +1,7 @@
+// src/app/layout.tsx
+// 根 layout 纯粹负责 HTML / body / global styles
 import type { Metadata } from "next";
 import { Noto_Sans } from "next/font/google";
-import Header from "@/components/layout/Header";
-import Footer from "@/components/layout/Footer";
-import { LanguageProvider } from "../LanguageProvider";
 import "./globals.css";
 
 const notoSans = Noto_Sans({
@@ -11,25 +10,18 @@ const notoSans = Noto_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "OTT Financial Group - Connected Financial Services",
-  description:
-    "Leading provider of financial services, payments, and foreign exchange solutions in Canada.",
+  title: "OTT Financial Group",
+  description: "Leading provider of financial services in Canada.",
 };
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
     <html lang="en" className={`${notoSans.variable}`}>
-      <body className={`antialiased`}>
-        <LanguageProvider>
-          <Header />
-          <main>{children}</main>
-          <Footer />
-        </LanguageProvider>
-      </body>
+      <body className="antialiased">{children}</body>
     </html>
   );
 }

@@ -11,6 +11,7 @@ import styles from "./Header.module.scss";
 const Header: React.FC = () => {
   const t = useTranslations();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
   return (
     <header className={`shadow-sm relative z-40 h-30 ${styles.header}`}>
       <div className="px-4 sm:px-6 lg:px-30 h-full">
