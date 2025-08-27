@@ -9,7 +9,7 @@ import LanguageSwitcher from "../LanguageSwitcher";
 import styles from "./Header.module.scss";
 
 const Header: React.FC = () => {
-  const t = useTranslations();
+  const t = useTranslations("navigation");
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   return (
@@ -49,7 +49,7 @@ const Header: React.FC = () => {
                   className={`relative group ml-21 ${styles.navItemContainer}`}
                 >
                   <button style={style} className={baseClass}>
-                    {t("home." + item.title)}
+                    {t(item.title)}
                   </button>
                   <div className="absolute left-0 top-15 w-[248px] bg-[#F8F7F5] shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all z-50">
                     {item?.children?.map(
@@ -71,7 +71,7 @@ const Header: React.FC = () => {
             {/* Login Btn */}
             <div className="bg-[#E31F26] hover:bg-[#BAB6B5] hover:cursor-pointer transition-colors text-white text-xs flex items-center justify-center ml-31 mr-10 w-14 h-7">
               <Link href="/login" className="transition-colors">
-                {t("common.login")}
+                {useTranslations()("common.login")}
               </Link>
             </div>
 
