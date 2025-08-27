@@ -1,6 +1,7 @@
 {
   "common": {
-    "login": "Login"
+    "login": "Login",
+    "explore more": "Explore More"
   },
   "home": {
     "about us": "About Us",
@@ -14,6 +15,26 @@
         "item1": "Mission & Vision",
         "item2": "Our Story",
         "item3": "Community"
+      }
+    },
+    "invest": {
+      "title": "Investment Management",
+      "subtitle": "Smart strategies. Sustainable growth.",
+      "description": "We manage and grow diverse assets with precision and care—building lasting value for clients and communities.",
+      "card1": {
+        "title": "Wealth Management",
+        "description": "Preserving and growing your wealth with insight and expertise.",
+        "gotoTxt": "Start My Wealth Journey"
+      },
+      "card2": {
+        "title": "Real Estate Investment",
+        "description": "Opportunities in premium and strategic properties.",
+        "gotoTxt": "Discover Investment Opportunities"
+      },
+      "card3": {
+        "title": "Hospitality Investment",
+        "description": "Investing in exceptional clubs and lifestyle destinations.",
+        "gotoTxt": "Experience Lifestyle Destinations"
       }
     }
   }

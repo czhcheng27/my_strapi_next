@@ -3,30 +3,31 @@ import Image from "next/image";
 import ExploreMore from "@/components/ExploreMore";
 import styles from "./index.module.scss";
 
-const options = [
-  {
-    title: "Wealth Management",
-    description:
-      "Preserving and growing your wealth with insight and expertise.",
-    img: "/images/backgrounds/bg1.jpg",
-    link: "/news",
-  },
-  {
-    title: "Real Estate",
-    description:
-      "Investment Opportunities in premium and strategic properties.",
-    img: "/images/backgrounds/bg2.jpg",
-    link: "/news",
-  },
-  {
-    title: "Hospitality Investment",
-    description: "Investing in exceptional clubs and lifestyle destinations",
-    img: "/images/backgrounds/bg3.jpg",
-    link: "/news",
-  },
-];
-
-const HomeInvest = () => {
+const HomeInvest = ({ t }: any) => {
+  // 从国际化数据构建选项数组
+  const options = [
+    {
+      title: t.card1.title,
+      description: t.card1.description,
+      img: "/images/backgrounds/bg1.jpg",
+      link: "/news",
+      gotoTxt: t.card1.gotoTxt,
+    },
+    {
+      title: t.card2.title,
+      description: t.card2.description,
+      img: "/images/backgrounds/bg2.jpg",
+      link: "/news",
+      gotoTxt: t.card2.gotoTxt,
+    },
+    {
+      title: t.card3.title,
+      description: t.card3.description,
+      img: "/images/backgrounds/bg3.jpg",
+      link: "/news",
+      gotoTxt: t.card3.gotoTxt,
+    },
+  ];
   return (
     <section className="py-12 lg:py-20">
       {/* Container with responsive padding matching Fintech */}
@@ -34,14 +35,13 @@ const HomeInvest = () => {
         {/* Header section */}
         <div className="mb-12 lg:mb-20">
           <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-light mb-6">
-            Investments
+            {t.title}
           </h1>
           <h2 className="text-lg sm:text-xl lg:text-2xl font-light mb-4">
-            Smart strategies. Sustainable growth.
+            {t.subtitle}
           </h2>
           <p className="max-w-2xl lg:text-lg font-light leading-relaxed">
-            We manage and grow diverse assets with precision and care—building
-            lasting value for clients and communities.
+            {t.description}
           </p>
         </div>
 
@@ -71,7 +71,7 @@ const HomeInvest = () => {
                     {el.description}
                   </p>
                   <div className="mt-auto">
-                    <ExploreMore link={el.link} />
+                    <ExploreMore link={el.link} title={el.gotoTxt} />
                   </div>
                 </div>
               </div>

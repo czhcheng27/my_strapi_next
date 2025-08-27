@@ -1,6 +1,7 @@
 {
   "common": {
-    "login": "登录"
+    "login": "登录",
+    "explore more": "了解更多"
   },
   "home": {
     "about us": "关于我们",
@@ -14,6 +15,26 @@
         "item1": "我们的愿景与使命",
         "item2": "发展历程",
         "item3": "社区与公益"
+      }
+    },
+    "invest": {
+      "title": "投资管理",
+      "subtitle": "智慧策略，稳健增长。",
+      "description": "以专业与审慎管理多元资产，为客户与社区创造持久价值。",
+      "card1": {
+        "title": "财富管理",
+        "description": "以专业与用心，助您实现财富的增长与守护。",
+        "gotoTxt": "财富启程"
+      },
+      "card2": {
+        "title": "地产投资",
+        "description": "专注优质与战略性物业机会。",
+        "gotoTxt": "探索投资机会"
+      },
+      "card3": {
+        "title": "俱乐部投资",
+        "description": "投资于卓越的俱乐部与生活方式目的地。",
+        "gotoTxt": "开启体验"
       }
     }
   }
