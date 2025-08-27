@@ -3,7 +3,7 @@ import Image from "next/image";
 import ExploreMore from "@/components/ExploreMore";
 import styles from "./index.module.scss";
 
-const HomeFintech = () => {
+const HomeFintech = ({ t }: any) => {
   return (
     <div className={`bg-[#DDD]`}>
       {/* Container with responsive padding matching other components */}
@@ -14,20 +14,18 @@ const HomeFintech = () => {
             {/* Text content */}
             <div className="order-2 lg:order-1">
               <h1 className="text-3xl sm:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl 3xl:text-5xl font-light mb-6 lg:mb-8">
-                Payments & Financial Services
+                {t.title}
               </h1>
               <h2 className="text-lg sm:text-xl lg:text-2xl font-light mb-2">
-                Seamless financial solutions without borders.
+                {t.subtitle}
               </h2>
               <p className="lg:text-lg font-light mb-2 leading-relaxed">
-                We deliver trusted payments, cross-border solutions, and digital
-                banking that connect people, businesses, and
-                opportunities—anytime, anywhere.
+                {t.description}
               </p>
               <ul className="list-disc lg:text-lg font-light ml-6 mb-8 lg:mb-12 space-y-2">
-                <li>Payment Solutions</li>
-                <li>International Remittance</li>
-                <li>Digital Banking & Card Services</li>
+                <li>{t.card1.title}</li>
+                <li>{t.card2.title}</li>
+                <li>{t.card3.title}</li>
               </ul>
               <ExploreMore />
             </div>
@@ -62,7 +60,7 @@ const HomeFintech = () => {
                 </div>
                 <div className="p-6 lg:p-8 flex items-center justify-between">
                   <h3 className="text-2xl lg:text-3xl font-light flex-1">
-                    Payment Solutions
+                    {t.card1.title}
                   </h3>
                   <div className="ml-4 flex-shrink-0">
                     <Image
@@ -88,7 +86,7 @@ const HomeFintech = () => {
                 </div>
                 <div className="p-6 lg:p-8 flex items-center justify-between">
                   <h3 className="text-2xl lg:text-3xl font-light flex-1">
-                    International Remittance
+                    {t.card2.title}
                   </h3>
                   <div className="ml-4 flex-shrink-0">
                     <Image
@@ -114,7 +112,7 @@ const HomeFintech = () => {
                 </div>
                 <div className="p-6 lg:p-8 flex items-center justify-between">
                   <h3 className="text-2xl lg:text-3xl font-light flex-1">
-                    Digital Banking & Card Services
+                    {t.card3.title}
                   </h3>
                   <div className="ml-4 flex-shrink-0">
                     <Image

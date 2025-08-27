@@ -23,7 +23,7 @@ export default async function HomePage({
       <HomeAbout t={dict.home.about} />
       <Divider />
       <HomeInvest t={dict.home.invest} />
-      <HomeFintech />
+      <HomeFintech t={dict.home.fintech} />
       <HomePortfolio />
       <HomeCareer />
     </div>

@@ -38,6 +38,23 @@
         "description": "Investing in exceptional clubs and lifestyle destinations.",
         "gotoTxt": "Experience Lifestyle Destinations"
       }
+    },
+    "fintech": {
+      "title": "Payments & Financial Services",
+      "subtitle": "Seamless financial solutions without borders.",
+      "description": "We deliver trusted payments, cross-border solutions, and digital banking that connect people, businesses, and opportunities—anytime, anywhere.",
+      "card1": {
+        "title": "Payment Solutions",
+        "gotoTxt": "Get Started"
+      },
+      "card2": {
+        "title": "International Remittance",
+        "gotoTxt": "Send Now"
+      },
+      "card3": {
+        "title": "Digital Banking & Card Services",
+        "gotoTxt": "Experience More"
+      }
     }
   }
 }
