@@ -2,7 +2,7 @@ import React from "react";
 import Image from "next/image";
 import ExploreMore from "@/components/ExploreMore";
 
-const HomeCareer = () => {
+const HomeCareer = ({ t }: any) => {
   return (
     <section className="bg-[#f2f0ec] relative">
       {/* Desktop: absolute positioned image covering right 50% */}
@@ -23,14 +23,12 @@ const HomeCareer = () => {
             <div className="flex items-start">
               <div>
                 <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-light mb-6">
-                  Careers
+                  {t.title}
                 </h1>
                 <p className="text-lg sm:text-xl lg:text-2xl font-light mb-8 lg:mb-12 leading-relaxed">
-                  Join OTT and shape the future of finance and real estate—while
-                  growing your own career in a collaborative, forward-thinking
-                  team
+                  {t.description}
                 </p>
-                <ExploreMore link="/careers" />
+                <ExploreMore title={t.gotoTxt} link="/careers" />
               </div>
             </div>
 

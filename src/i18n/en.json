@@ -55,6 +55,11 @@
         "title": "Digital Banking & Card Services",
         "gotoTxt": "Experience More"
       }
+    },
+    "careers": {
+      "title": "Careers",
+      "description": "Join OTT and shape the future of finance and real estate while growing your own career in a collaborative, forward-thinking team.",
+      "gotoTxt": "Join us"
     }
   }
 }

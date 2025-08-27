@@ -25,7 +25,7 @@ export default async function HomePage({
       <HomeInvest t={dict.home.invest} />
       <HomeFintech t={dict.home.fintech} />
       <HomePortfolio />
-      <HomeCareer />
+      <HomeCareer t={dict.home.careers} />
     </div>
   );
 }
