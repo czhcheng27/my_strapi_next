@@ -1,6 +1,6 @@
 // Header 组件
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useTranslations } from "next-intl";
@@ -11,9 +11,66 @@ import styles from "./Header.module.scss";
 const Header: React.FC = () => {
   const t = useTranslations("navigation");
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isVisible, setIsVisible] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
+
+  useEffect(() => {
+    // Use requestAnimationFrame for better performance
+    let ticking = false;
+    const scrollHandler = () => {
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          handleScroll();
+          ticking = false;
+        });
+        ticking = true;
+      }
+    };
+
+    window.addEventListener("scroll", scrollHandler, { passive: true });
+
+    return () => {
+      window.removeEventListener("scroll", scrollHandler);
+    };
+  }, [lastScrollY, isMobileMenuOpen]);
+
+  const handleScroll = () => {
+    const currentScrollY = window.scrollY;
+    const scrollDifference = Math.abs(currentScrollY - lastScrollY);
+
+    // Don't hide header if mobile menu is open
+    if (isMobileMenuOpen) {
+      setIsVisible(true);
+      return;
+    }
+
+    // Only react to scroll if user has scrolled enough
+    if (scrollDifference < 8) return;
+
+    // Always show header when at the very top
+    if (currentScrollY < 100) {
+      setIsVisible(true);
+    }
+    // Hide header when scrolling down significantly
+    else if (currentScrollY > lastScrollY && currentScrollY > 150) {
+      setIsVisible(false);
+    }
+    // Show header when scrolling up
+    else if (currentScrollY < lastScrollY) {
+      setIsVisible(true);
+    }
+
+    setLastScrollY(currentScrollY);
+  };
 
   return (
-    <header className={`shadow-sm relative z-40 h-30 ${styles.header}`}>
+    <header
+      className={`
+        ${styles.header}
+        ${isVisible ? styles.visible : styles.hidden}
+        shadow-sm
+      `}
+    >
       <div className="px-4 sm:px-6 lg:px-30 h-full">
         <div className="flex justify-between items-start h-full">
           {/* Logo */}
@@ -82,7 +139,13 @@ const Header: React.FC = () => {
           {/* Mobile menu button */}
           <div className="md:hidden">
             <button
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              onClick={() => {
+                setIsMobileMenuOpen(!isMobileMenuOpen);
+                // Force visibility when opening mobile menu
+                if (!isMobileMenuOpen) {
+                  setIsVisible(true);
+                }
+              }}
               className="text-gray-700 hover:text-blue-600 transition-colors"
             >
               <svg
@@ -104,7 +167,7 @@ const Header: React.FC = () => {
 
         {/* Mobile Navigation */}
         {isMobileMenuOpen && (
-          <div className="md:hidden border-t border-gray-200 py-4">
+          <div className="md:hidden border-t border-gray-200 py-4 mobile-menu-open">
             <div className="space-y-2">
               {NAVIGATION.map((item: NavItem) => {
                 if (item.children && item.children.length > 0) {
@@ -118,7 +181,10 @@ const Header: React.FC = () => {
                           <Link
                             key={child.title}
                             href={child.href || "#"}
-                            onClick={() => setIsMobileMenuOpen(false)}
+                            onClick={() => {
+                              setIsMobileMenuOpen(false);
+                              setLastScrollY(window.scrollY);
+                            }}
                             className="block px-6 py-2 text-gray-700 hover:text-blue-600"
                           >
                             {child.title}
@@ -133,7 +199,10 @@ const Header: React.FC = () => {
                   <Link
                     key={item.title}
                     href={item.href || "#"}
-                    onClick={() => setIsMobileMenuOpen(false)}
+                    onClick={() => {
+                      setIsMobileMenuOpen(false);
+                      setLastScrollY(window.scrollY);
+                    }}
                     className="block px-4 py-2 text-gray-700 hover:text-blue-600"
                   >
                     {item.title}

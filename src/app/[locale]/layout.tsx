@@ -24,7 +24,7 @@ export default async function LocaleLayout({
   return (
     <NextIntlClientProvider locale={locale} messages={messages}>
       <Header />
-      <main>{children}</main>
+      <main className="pt-30">{children}</main>
       <Footer />
     </NextIntlClientProvider>
   );

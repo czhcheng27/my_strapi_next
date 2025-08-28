@@ -3,6 +3,30 @@
   --nav-height: 60px;
   --underline-color: #e31f26;
   --duration: 350ms;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 40;
+  height: 120px; // 7.5rem equivalent
+  background-color: white;
+  transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.1);
+  will-change: transform;
+
+  &.hidden {
+    transform: translateY(-100%);
+  }
+
+  &.visible {
+    transform: translateY(0);
+  }
+
+  // Ensure mobile menu doesn't get cut off
+  &:has(.mobile-menu-open) {
+    transform: translateY(0) !important;
+  }
 }
 
 .navItemContainer {
