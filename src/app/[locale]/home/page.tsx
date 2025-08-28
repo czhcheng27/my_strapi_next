@@ -18,7 +18,7 @@ export default async function HomePage({
   const dict = await getDictionary(locale);
 
   return (
-    <div className="min-h-screen w-full max-w-full overflow-x-hidden">
+    <div className="min-h-screen">
       <HomeHero />
       <HomeAbout t={dict.home.about} />
       <Divider />

@@ -24,9 +24,7 @@ export default async function LocaleLayout({
   return (
     <NextIntlClientProvider locale={locale} messages={messages}>
       <Header />
-      <main className="pt-30 w-full max-w-full overflow-x-hidden">
-        {children}
-      </main>
+      <main className="pt-30">{children}</main>
       <Footer />
     </NextIntlClientProvider>
   );

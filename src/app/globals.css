@@ -29,7 +29,6 @@
 /* 基础样式 */
 html {
   font-family: var(--font-sans);
-  overflow-x: hidden;
 }
 
 body {
@@ -37,19 +36,6 @@ body {
   color: var(--foreground);
   margin: 0;
   padding: 0;
-  overflow-x: hidden;
   -webkit-font-smoothing: antialiased; /* 优化文字渲染 */
   -moz-osx-font-smoothing: grayscale;
-}
-
-/* 防止任何元素造成横向滚动 */
-* {
-  max-width: 100%;
-}
-
-/* 确保容器不会造成横向滚动 */
-.container,
-[class*="container"] {
-  max-width: 100%;
-  overflow-x: hidden;
 }

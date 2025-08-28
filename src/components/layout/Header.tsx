@@ -72,7 +72,7 @@ const Header: React.FC = () => {
       `}
     >
       <div className="px-4 sm:px-6 lg:px-30 h-full">
-        <div className="flex justify-between items-start h-full">
+        <div className="flex justify-between items-center sm:items-start h-full">
           {/* Logo */}
           <div className="flex-shrink-0 pt-[40px]">
             <Link href="/" className="text-2xl font-bold text-blue-600">
