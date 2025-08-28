@@ -95,7 +95,7 @@ const HomePortfolio = () => {
 
   return (
     <div
-      className={`relative h-70 sm:h-100 lg:h-151`}
+      className={`relative h-70 sm:h-100 lg:h-151 overflow-hidden`}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
@@ -128,18 +128,18 @@ const HomePortfolio = () => {
         />
       </button>
 
-      {/* Quote text - 添加 sm 和更小屏幕的响应式 */}
-      <div className="absolute font-[250] top-8 sm:top-16 md:top-28 3xl:top-28 -right-10 sm:right-6 md:right-8 lg:right-20 xl:right-32 2xl:right-47 3xl:right-47 max-w-72 sm:max-w-80 md:max-w-90 lg:max-w-108 xl:max-w-156 2xl:max-w-204 3xl:max-w-264 italic text-xl sm:text-3xl md:text-[28px] lg:text-[36px] xl:text-[44px] 2xl:text-[52px] 3xl:text-5xl transition-opacity duration-300">
+      {/* Quote text - 修复移动端溢出问题 */}
+      <div className="absolute font-[250] top-8 sm:top-16 md:top-28 3xl:top-28 right-2 sm:right-6 md:right-8 lg:right-20 xl:right-32 2xl:right-47 3xl:right-47 max-w-60 sm:max-w-80 md:max-w-90 lg:max-w-108 xl:max-w-156 2xl:max-w-204 3xl:max-w-264 italic text-lg sm:text-3xl md:text-[28px] lg:text-[36px] xl:text-[44px] 2xl:text-[52px] 3xl:text-5xl transition-opacity duration-300">
         {currentPerson.quote}
       </div>
 
-      {/* Avatar image - 添加 sm 和更小屏幕的响应式 */}
+      {/* Avatar image - 修复移动端溢出问题 */}
       <Image
         src={currentPerson.avatar}
         alt={currentPerson.name}
         width={630}
         height={530}
-        className="absolute bottom-0 -left-4 sm:left-6 md:left-8 lg:left-20 xl:left-32 2xl:left-45 3xl:left-45 w-64 h-56 sm:w-80 sm:h-72 md:w-[380px] md:h-[330px] lg:w-[440px] lg:h-[380px] xl:w-[500px] xl:h-[420px] 2xl:w-[630px] 2xl:h-[530px] 3xl:w-[630px] 3xl:h-[530px] object-cover transition-opacity duration-300"
+        className="absolute bottom-0 left-2 sm:left-6 md:left-8 lg:left-20 xl:left-32 2xl:left-45 3xl:left-45 w-64 h-56 sm:w-80 sm:h-72 md:w-[380px] md:h-[330px] lg:w-[440px] lg:h-[380px] xl:w-[500px] xl:h-[420px] 2xl:w-[630px] 2xl:h-[530px] 3xl:w-[630px] 3xl:h-[530px] object-cover transition-opacity duration-300"
       />
 
       {/* Bio text - 添加 sm 和更小屏幕的响应式 */}
